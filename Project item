@@ -1,0 +1,73 @@
+using namespace std;
+
+// Class to represent an item
+class Item {
+private:
+    string name;
+    double price;
+
+public:
+    Item(const string& n, double p) : name(n), price(p) {}
+
+    string getName() const {
+        return name;
+    }
+
+    double getPrice() const {
+        return price;
+    }
+};// Class to represent an order
+class Order {
+private:
+    vector<Item> items;
+
+public:
+    // Function to add an item to the order
+    void addItem(const Item& item) {
+        items.push_back(item);
+    }
+
+    // Function to calculate the total cost of the order
+    double calculateTotal() const {
+        double total = 0.0;
+        for (const auto& item : items) {
+            total += item.getPrice();
+        }
+        return total;
+    }
+
+    // Function to display the order details
+    void displayOrder() const {
+        if (items.empty()) {cout << "Order is empty." << endl;
+        } else {
+            cout << "Order Details:" << endl;
+            for (const auto& item : items) {
+                cout << item.getName() << ": ₱" << fixed << setprecision(2) << item.getPrice() << endl;
+            }
+            cout << "Total: ₱" << fixed << setprecision(2) << calculateTotal() << endl;
+        }
+    }
+};
+
+int main() {
+    // Sample items
+    Item item1("Pizza", 120);
+    Item item2("Chips", 150);
+    Item item3("Drink", 50);
+    Item item4("Fries", 100);
+    Item item5("Cookies", 80); 
+    // Create an order
+    Order order;
+
+    // Add items to the order
+    order.addItem(item1);
+    order.addItem(item2);
+    order.addItem(item3);
+    order.addItem(item4);
+    order.addItem(item5); 
+
+    // Display order details
+    order.displayOrder();
+
+    return 0;
+}
