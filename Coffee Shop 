@@ -1,0 +1,58 @@
+
+#include <iostream>
+using namespace std;
+
+// Function to display the menu
+void displayMenu() {
+    cout << "Welcome to the Coffee Shop!" << endl;
+    cout << "Please choose a drink:" << endl;
+    cout << "1. Coffee - ₱109" << endl;
+    cout << "2. Latte - ₱149" << endl;
+    cout << "3. Cappuccino - ₱149" << endl;
+    cout << "4. Espresso - ₱159" << endl;
+}
+
+// Function to get the price of the drink based on the user's choice
+double getPrice(int choice) {
+    switch (choice) {
+        case 1:
+            return 109;
+        case 2:
+            return 149;
+        case 3:
+            return 149;
+        case 4:
+            return 159;
+        default:
+            return 0.0;  // Invalid choice
+    }
+}
+
+// Function to handle the order
+void handleOrder(int choice) {
+    double price = getPrice(choice);
+    if (price > 0) {
+        cout << "You ordered ";
+        switch (choice) {
+            case 1: cout << "a Coffee."; break;
+            case 2: cout << "a Latte."; break;
+            case 3: cout << "a Cappuccino."; break;
+            case 4: cout << "an Espresso."; break;
+        }
+        cout << " Total: ₱" << price << endl;
+    } else {
+        cout << "Invalid choice. Please select a number between 1 and 4." << endl;
+    }
+}
+
+int main() {
+    int choice;
+
+    displayMenu();
+    cout << "Enter your choice (1-4): ";
+    cin >> choice;
+
+    handleOrder(choice);
+
+    return 0;
+}
