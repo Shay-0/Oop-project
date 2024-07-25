@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iomanip> // for setprecision()
+
+
 using namespace std;
 
 // Class to represent an item
