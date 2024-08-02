@@ -1,0 +1,68 @@
+
+using System;
+
+class CoffeeShop
+{
+    // Function to display the menu
+    static void DisplayMenu()
+    {
+        Console.WriteLine("Welcome to the Coffee Shop!");
+        Console.WriteLine("Please choose a drink:");
+        Console.WriteLine("1. Coffee - ₱109");
+        Console.WriteLine("2. Latte - ₱149");
+        Console.WriteLine("3. Cappuccino - ₱149");
+        Console.WriteLine("4. Espresso - ₱159");
+    }
+
+    // Function to get the price of the drink based on the user's choice
+    static double GetPrice(int choice)
+    {
+        switch (choice)
+        {
+            case 1:
+                return 109;
+            case 2:
+                return 149;
+            case 3:
+                return 149;
+            case 4:
+                return 159;
+            default:
+                return 0.0;  // Invalid choice
+        }
+    }
+
+    // Function to handle the order
+    static void HandleOrder(int choice)
+    {
+        double price = GetPrice(choice);
+        if (price > 0)
+        {
+            Console.Write("You ordered ");
+            switch (choice)
+            {
+                case 1: Console.WriteLine("a Coffee."); break;
+                case 2: Console.WriteLine("a Latte."); break;
+                case 3: Console.WriteLine("a Cappuccino."); break;
+                case 4: Console.WriteLine("an Espresso."); break;
+            }
+            Console.WriteLine("Total: ₱" + price);
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice. Please select a number between 1 and 4.");
+        }
+    }
+
+    static void Main()
+    {
+        int choice;
+
+        DisplayMenu();
+        Console.Write("Enter your choice (1-4): ");
+        choice = int.Parse(Console.ReadLine());
+
+        HandleOrder(choice);
+    }
+}
+    
